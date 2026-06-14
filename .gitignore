@@ -1,0 +1,17 @@
+# Python
+__pycache__/
+*.py[cod]
+.venv/
+*.egg-info/
+.pytest_cache/
+.mypy_cache/
+.ruff_cache/
+
+# Local data artifacts — the pipeline is reproducible from source, so we never
+# commit the landed Parquet or the DuckDB analytical store.
+data/
+*.duckdb
+*.duckdb.wal
+
+# Environment
+.env

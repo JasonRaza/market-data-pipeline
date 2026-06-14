@@ -1,0 +1,18 @@
+# Universe and date ranges for the pipeline.
+# `end: null` means "up to the most recent available bar".
+equities:
+  tickers:
+    - AAPL
+    - MSFT
+    - SPY
+  start: "2020-01-01"
+  end: null
+
+macro:
+  # FRED series IDs. DGS10 = 10-Year Treasury constant maturity yield;
+  # CPIAUCSL = CPI for all urban consumers (seasonally adjusted).
+  series:
+    - DGS10
+    - CPIAUCSL
+  start: "2020-01-01"
+  end: null
