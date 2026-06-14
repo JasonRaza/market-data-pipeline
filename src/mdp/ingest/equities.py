@@ -17,6 +17,8 @@ from datetime import date
 
 import pandas as pd
 
+from mdp.ingest import IngestError
+
 TIDY_COLUMNS: list[str] = [
     "ticker",
     "date",
@@ -47,10 +49,6 @@ _RENAME = {
 # Signature of the unit doing the network call. Injected so tests can supply a
 # canned yfinance-shaped frame without touching the network.
 EquityFetcher = Callable[[str, date, date | None], pd.DataFrame]
-
-
-class IngestError(RuntimeError):
-    """Raised when upstream data cannot be reshaped into the tidy schema."""
 
 
 def fetch_equities(
