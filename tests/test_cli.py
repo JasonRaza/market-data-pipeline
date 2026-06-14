@@ -69,9 +69,7 @@ def test_ingest_load_query_flow(
     assert load.exit_code == 0, load.output
     assert "upserted 2 equity bars and 2 macro observations" in load.output
 
-    q = runner.invoke(
-        cli.app, ["query", "SELECT count(*) AS n FROM equities", "--db", str(db)]
-    )
+    q = runner.invoke(cli.app, ["query", "SELECT count(*) AS n FROM equities", "--db", str(db)])
     assert q.exit_code == 0, q.output
     assert "2" in q.output
 

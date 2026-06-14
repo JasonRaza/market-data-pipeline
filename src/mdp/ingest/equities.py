@@ -84,9 +84,7 @@ def tidy_equities(raw: pd.DataFrame, ticker: str) -> pd.DataFrame:
 
     missing = {"open", "high", "low", "close", "adj_close", "volume"} - set(df.columns)
     if missing:
-        raise IngestError(
-            f"{ticker}: upstream frame missing expected columns {sorted(missing)}"
-        )
+        raise IngestError(f"{ticker}: upstream frame missing expected columns {sorted(missing)}")
 
     # Corporate-action columns are absent when a name has never paid a dividend
     # or split; treat that as zero rather than failing.

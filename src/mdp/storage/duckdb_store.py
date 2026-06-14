@@ -61,13 +61,15 @@ def init_schema(con: duckdb.DuckDBPyConnection) -> None:
 
 
 def upsert_equities(con: duckdb.DuckDBPyConnection, df: pd.DataFrame) -> int:
-    return _upsert(con, df, table="equities", conflict=("ticker", "date"),
-                   update_cols=_EQUITIES_UPDATE_COLS)
+    return _upsert(
+        con, df, table="equities", conflict=("ticker", "date"), update_cols=_EQUITIES_UPDATE_COLS
+    )
 
 
 def upsert_macro(con: duckdb.DuckDBPyConnection, df: pd.DataFrame) -> int:
-    return _upsert(con, df, table="macro", conflict=("series_id", "date"),
-                   update_cols=_MACRO_UPDATE_COLS)
+    return _upsert(
+        con, df, table="macro", conflict=("series_id", "date"), update_cols=_MACRO_UPDATE_COLS
+    )
 
 
 def row_count(con: duckdb.DuckDBPyConnection, table: str) -> int:
